@@ -1,0 +1,8 @@
+/* Tiny Scrollbar */
+.tinyscrollbar { width: inherit;}
+  .tinyscrollbar .viewport  { position: relative; height: inherit; overflow: hidden; }
+  .tinyscrollbar .overview  { position: absolute; left: 0; top: 0; padding: 0; margin: 0; list-style: none; }
+  .tinyscrollbar .scrollbar { position: relative; float: right; width: 8px; }
+  .tinyscrollbar .track     { position: relative; width: inherit; height: 100%; background: #D2D2D2; border-radius: 15px; }
+  .tinyscrollbar .thumb     { position: absolute; top: 0; left: 0; width: inherit; height: 20px; cursor: pointer; overflow: hidden; background: #7F7F7F; border-radius: inherit; }
+  .tinyscrollbar .disable   { display: none; }

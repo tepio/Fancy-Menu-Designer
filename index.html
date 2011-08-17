@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.15.custom.css" />
+    <link rel="stylesheet" href="css/jquery.tinyscrollbar.css" />
+    <link rel="stylesheet" href="css/menu_designer.css" />
+  </head>
+  <body>
+
+    <div id="menus">
+      <div class="menu">
+        <div class="grippy"></div>
+        <header class="clearfix">
+          <div class="menu-title">Untitled Menu</div>
+          <div class="edit-title">edit</div>
+        </header>
+        <ul class="categories">
+          <li class="category-add_button"><strong>&plus;</strong> Add Category</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Menu Template -->
+    <div class="menu template" style="display:none;">
+      <div class="grippy"></div>
+      <header class="clearfix">
+        <div class="menu-title">Untitled Menu</div>
+        <div class="edit-title">edit</div>
+      </header>
+      <ul class="categories">
+        <li />
+      </ul>
+    </div>
+
+    <!-- Category Template -->
+    <div class="category template" style="display:none;">
+      <div class="grippy"></div>
+      <header class="clearfix">
+        <div class="category-title">Untitled Category</div>
+        <div class="edit-title">edit</div>
+      </header>
+      <ul class="products">
+        <li />
+      </ul>
+    </div>
+
+    <!-- Product Template -->
+    <div class="product template" style="display:none;">
+      <div class="grippy"></div>
+      <header class="clearfix">
+        <div class="product-title">Untitled Product</div>
+        <div class="edit-title">edit</div>
+      </header>
+      <ul class="subproducts">
+        <li />
+      </ul>
+      <ul class="subproduct_groups">
+        <li />
+      </ul>
+    </div>
+
+    <!-- Subproduct Template -->
+    <div class="subproduct template" style="display: none;">
+      <div class="grippy"></div>
+      <header class="clearfix">
+        <div class="subproduct-title">Untitled Subproduct</div>
+        <div class="edit-title">edit</div>
+      </header>
+      <div class="subproduct-type"></div>
+    </div>
+
+    <!-- Subproduct Group Template -->
+    <div class="subproduct_group template" style="display: none">
+      <div class="grippy"></div>
+      <header class="clearfix">
+        <div class="subproduct_group-title">Untitled Subproduct Group</div>
+        <div class="edit-title">edit</div>
+      </header>
+      <div class="subproduct_group-type"></div>
+      <div class="subproduct_group-rules"></div>
+    </div>
+
+    <div id="right-bar">
+      <div id="trash">
+        <div id="trash-header">Trash</div>
+        <ul id="trash-list"></ul>
+      </div>
+      <div id="item-catalog">
+        <div>Items</div>
+        <div class="tinyscrollbar">
+          <ul>
+            <li id="catalog-item-1" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 1</li>
+            <li id="catalog-item-2" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 2</li>
+            <li id="catalog-item-3" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 3</li>
+            <li id="catalog-item-4" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 4</li>
+            <li id="catalog-item-5" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 5</li>
+            <li id="catalog-item-6" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 6</li>
+            <li id="catalog-item-7" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 7</li>
+            <li id="catalog-item-9" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 8</li>
+            <li id="catalog-item-8" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 9</li>
+            <li id="catalog-item-10" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 10</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="clear: both">
+      <form method="post" action="">
+        <div class="form-actions">
+          <input class="form-cancel" type="button" value="Cancel" />
+          <button class="form-save button">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="js/jquery-1.6.2.js"></script>
+    <script src="js/jquery-ui-1.8.15.custom.min.js"></script>
+    <script src="js/jquery.livequery-1.1.1.js"></script>
+    <script src="js/jquery.metadata.js"></script>
+    <script src="js/jquery.tinyscrollbar.js"></script>
+    <script src="js/menu_designer.js"></script>
+  </body>
+</html>
