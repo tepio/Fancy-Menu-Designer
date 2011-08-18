@@ -1,23 +1,23 @@
 /** Clearfix **/
 .clearfix:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
  
 .clearfix {
-	display: inline-block;
+  display: inline-block;
 }
  
 html[xmlns] .clearfix {
-	display: block;
+  display: block;
 }
  
 * html .clearfix {
-	height: 1%;
+  height: 1%;
 }
 
 
@@ -71,6 +71,11 @@ html[xmlns] .clearfix {
   position: relative;
 }
 
+#menus .menu-title, #menus .category-title, #menus .product-title,
+#menus .subproduct-title, #menus .subproduct_group-title, #menus .title-change {
+  font-family: sans;
+}
+
 .menu {
   float: left;
   width: 500px;
@@ -82,11 +87,9 @@ html[xmlns] .clearfix {
 .menu-title {
   font-size: 28px;
   cursor: pointer;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+}
+.menu-title .title-change {
+  font-size: inherit;
 }
 .menu li {
   list-style: none;
@@ -143,6 +146,9 @@ html[xmlns] .clearfix {
   font-size: 24px;
   cursor: pointer;
 }
+.category-title input.title-change {
+  font-size: inherit;
+}
 .products, .subproducts, .subproduct_groups {
   position: relative;
   min-width: inherit;
@@ -178,11 +184,20 @@ html[xmlns] .clearfix {
 .product-title {
   font-size: 20px;
 }
+.product-title .title-change {
+  font-size: inherit;
+}
 .subproduct-title {
   font-size: 16px;
 }
+.subproduct-title .title-change {
+  font-size: inherit;
+}
 .subproduct_group-title {
   font-size: 18px;
+}
+.subproduct_group-title .title-change {
+  font-size: inherit;
 }
 
 .menu > header > div, .category > header > div, .product > header > div, .subproduct > header > div, .subproduct_group > header > div {
