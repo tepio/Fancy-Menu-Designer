@@ -1,12 +1,28 @@
+/**
+ * Menu Designer
+ * 
+ */
 
-var structure = {};
+(function($){
 
-$(function() {
-      
-  // Apply TinyScrollbar
-  $('#item-catalog .tinyscrollbar').tinyscrollbar();
+  var structure = {};
   
-  // Change Title
+  /** Item Catalog UI **/
+  $('#item-catalog .tinyscrollbar').tinyscrollbar();
+  $('#item-catalog li').livequery(function(){
+    $(this).draggable({
+      appendTo: 'body',
+      helper: 'clone',
+      cursorAt: {
+        top: 5,
+        left: 5
+      }
+    });
+  });
+  
+  /**
+   * Editable Title
+   */
   var editable_title = function($title, e){
     if($title.hasClass('edit-mode')) {
       if(e.type == 'click' || e.which == '13') {
@@ -24,6 +40,8 @@ $(function() {
       $title.addClass('edit-mode');
     }
   };
+
+  /** Edit Title UI **/
   $('.menu header, .menu header').live('mouseenter', function(e){
     if(!$(this).children('div[class=~"-title"]').hasClass('edit-mode')) {
       $(this).children('.edit-title').css('opacity', 0.5).show(); 
@@ -39,9 +57,7 @@ $(function() {
     if(!$(this).siblings('div[class=~"-title"]').hasClass('edit-mode')) {
       $(this).css('opacity', 0.5);
     }
-  });
-  
-  $('.menu .edit-title').live('click', function(e){
+  }).live('click', function(e){
     e.preventDefault;
     var $title = $(this).siblings('div[class=~"-title"]');
     editable_title($title, e);
@@ -49,23 +65,25 @@ $(function() {
   $('.menu .title-change').live('keyup', function(e){
     editable_title($(this).parent(), e);
   });
-      
+  
+  /** Categories UI **/
   $('.categories').livequery(function(){
     $(this).sortable({
       handle: '.grippy',
       helper: 'clone',
       placeholder: 'list-placeholder',
       sort: function(event, ui){}
-    }).disableSelection();
+    });
   });
   
+  /** Products UI **/
   $('.products').livequery(function(){ 
     $(this).sortable({
       handle: '.grippy',
       connectWith: '.products',
       placeholder: 'list-placeholder',
       sort: function(event, ui){
-        $( this ).removeClass( "ui-state-default" );
+        $(this).removeClass("ui-state-default");
       }
     }).droppable({
       activeClass: 'ui-state-default',
@@ -81,9 +99,10 @@ $(function() {
         $(product).find('.product-title').text(data.title);
         $(product).hide().appendTo(this).fadeIn();
       }
-    }).disableSelection();
+    });
   });
   
+  /** Subproduct UI **/
   $('.subproducts').livequery(function(){
     $(this).sortable({
       handle: '.grippy',
@@ -107,28 +126,19 @@ $(function() {
         $(subproduct).find('.subproduct-title').text(data.title);
         $(subproduct).hide().appendTo(this).fadeIn();
       }
-    }).disableSelection();
+    });
   });
     
-  // Add category
+  /** Add Category Button **/
   $('.category-add_button').click(function(e){
     e.preventDefault();
     var category = $('.category.template').clone().wrapInner('<li class="category" />').children('li').eq(0);
+    var category_title = $(category).find('.category-title');
+    $(category_title).text($(category_title).attr('placeholder'));
     $(category).hide().insertAfter(this).fadeIn();
   });
   
-  // Item catalog is draggable
-  $('#item-catalog li').livequery(function(){
-    $(this).draggable({
-      appendTo: 'body',
-      helper: 'clone',
-      cursorAt: {
-        top: 5,
-        left: 5
-      }
-    });
-  });
-  
+  /*
   $('#trash').livequery(function(){
     $(this).droppable({
       accept: '.menu li',
@@ -141,14 +151,57 @@ $(function() {
       }
     });
   });
-  
-  // Save structure
-  $('form .form-actions .form-save').bind('click', function(e){
-    e.preventDefault();
+  */
+
+  /**
+   * Build Subproducts
+   */  
+  var build_subproducts = function($objs, opts) {
+    var result = [];
+    var order = 0;
+    var options = $.extend({}, {
+      callback: null,
+      callback_results: 'children'
+    }, opts);
     
+          
+    $objs.each(function(){
+      var meta = $(this).metadata({type:'attr', name:'data',single:'data'});
+      var type = 'toggle';
+      var value = 'on';
+      var rules = {
+        required: false
+      };
+      
+      var i = result.push({
+        id: meta.id,
+        title: meta.title ? meta.title : meta.name,
+        type: type,
+        value: value,
+        rules: rules,
+        order: order++
+      });
+      
+      // Execute callback
+      if(typeof options.callback == 'function') {
+        var callback_result = options.callback.call(obj, i);
+        
+        // Store callback results
+        if(typeof options.callback_results == 'string') {
+          result[options.callback_results] = callback_result;
+        }
+      }
+    });
+    return result;
+  };
+
+  /**
+   * Build Menu
+   */
+  var build_menu = function($menu){
     // Menu
-    var meta = $('#menus .menu').metadata();
-    var title = $('#menus .menu .menu-title').text();
+    var meta = $menu.metadata();
+    var title = $menu.find('.menu-title').text();
     
     var structure = {
       id: typeof meta.id == undefined ? null : meta.id,
@@ -158,7 +211,7 @@ $(function() {
     
     // Categories
     var category_order = 0;
-    $('.menu .category').each(function(){
+    $menu.find('.category').each(function(){
       var meta = $(this).metadata();
       var title = $(this).find('.category-title').text();
       
@@ -205,48 +258,18 @@ $(function() {
         });
         
       });
-      
     });
 
-    var json = $.stingify(structure);
-  });
-  
-  var build_subproducts = function($objs, opts) {
-    var result = [];
-    var order = 0;
-    var options = $.extend({}, {
-      callback: null,
-      callback_results: 'children'
-    }, opts);
-    
-          
-    $objs.each(function(){
-      var meta = $(this).metadata({type:'attr', name:'data',single:'data'});
-      var type = 'toggle';
-      var value = 'on';
-      var rules = {
-        required: false
-      };
-      
-      var i = result.push({
-        id: meta.id,
-        title: meta.title ? meta.title : meta.name,
-        type: type,
-        value: value,
-        rules: rules,
-        order: order++
-      });
-      
-      // Execute callback
-      if(typeof options.callback == 'function') {
-        var callback_result = options.callback.call(obj, i);
-        
-        // Store callback results
-        if(typeof options.callback_results == 'string') {
-          result[options.callback_results] = callback_result;
-        }
-      }
-    });
-    return result;
+    return structure;
   };
-});
+
+  /** Save structure **/
+  $('form .form-actions .form-save').bind('click', function(e){
+    e.preventDefault();
+    
+    var new_structure = build_menu($('#menus .menu'));
+
+    var json = JSON.stringify(new_structure);
+    console.log(json);
+  });
+})(jQuery);
