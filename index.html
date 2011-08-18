@@ -11,7 +11,7 @@
       <div class="menu">
         <div class="grippy"></div>
         <header class="clearfix">
-          <div class="menu-title">Untitled Menu</div>
+          <div class="menu-title" placeholder="Untitled Menu">Untitled Menu</div>
           <div class="edit-title">edit</div>
         </header>
         <ul class="categories">
@@ -24,11 +24,11 @@
     <div class="menu template" style="display:none;">
       <div class="grippy"></div>
       <header class="clearfix">
-        <div class="menu-title">Untitled Menu</div>
+        <div class="menu-title" placeholder="Untitled Menu"></div>
         <div class="edit-title">edit</div>
       </header>
       <ul class="categories">
-        <li />
+        <li class="category-add_button"><strong>&plus;</strong> Add Category</li>
       </ul>
     </div>
 
@@ -36,7 +36,7 @@
     <div class="category template" style="display:none;">
       <div class="grippy"></div>
       <header class="clearfix">
-        <div class="category-title">Untitled Category</div>
+        <div class="category-title" placeholder="Untitled Category"></div>
         <div class="edit-title">edit</div>
       </header>
       <ul class="products">
@@ -48,7 +48,7 @@
     <div class="product template" style="display:none;">
       <div class="grippy"></div>
       <header class="clearfix">
-        <div class="product-title">Untitled Product</div>
+        <div class="product-title" placeholder="Untitled Product"></div>
         <div class="edit-title">edit</div>
       </header>
       <ul class="subproducts">
@@ -63,7 +63,7 @@
     <div class="subproduct template" style="display: none;">
       <div class="grippy"></div>
       <header class="clearfix">
-        <div class="subproduct-title">Untitled Subproduct</div>
+        <div class="subproduct-title" placeholder="Untitled Subproduct"></div>
         <div class="edit-title">edit</div>
       </header>
       <div class="subproduct-type"></div>
@@ -73,7 +73,7 @@
     <div class="subproduct_group template" style="display: none">
       <div class="grippy"></div>
       <header class="clearfix">
-        <div class="subproduct_group-title">Untitled Subproduct Group</div>
+        <div class="subproduct_group-title" placeholder="Untitled Subproduct Group"></div>
         <div class="edit-title">edit</div>
       </header>
       <div class="subproduct_group-type"></div>
@@ -89,16 +89,17 @@
         <div>Items</div>
         <div class="tinyscrollbar">
           <ul>
+            <!-- Make sure to create a json object for the data attribute -->
             <li id="catalog-item-1" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 1</li>
-            <li id="catalog-item-2" class="catalog-item " data='{"id":1,"title":"Item 2"}'>Item 2</li>
-            <li id="catalog-item-3" class="catalog-item " data='{"id":1,"title":"Item 3"}'>Item 3</li>
-            <li id="catalog-item-4" class="catalog-item " data='{"id":1,"title":"Item 4"}'>Item 4</li>
-            <li id="catalog-item-5" class="catalog-item " data='{"id":1,"title":"Item 5"}'>Item 5</li>
-            <li id="catalog-item-6" class="catalog-item " data='{"id":1,"title":"Item 6"}'>Item 6</li>
-            <li id="catalog-item-7" class="catalog-item " data='{"id":1,"title":"Item 7"}'>Item 7</li>
-            <li id="catalog-item-9" class="catalog-item " data='{"id":1,"title":"Item 8"}'>Item 8</li>
-            <li id="catalog-item-8" class="catalog-item " data='{"id":1,"title":"Item 9"}'>Item 9</li>
-            <li id="catalog-item-10" class="catalog-item " data='{"id":1,"title":"Item 10"}'>Item 10</li>
+            <li id="catalog-item-2" class="catalog-item " data='{"id":2,"title":"Item 2"}'>Item 2</li>
+            <li id="catalog-item-3" class="catalog-item " data='{"id":3,"title":"Item 3"}'>Item 3</li>
+            <li id="catalog-item-4" class="catalog-item " data='{"id":4,"title":"Item 4"}'>Item 4</li>
+            <li id="catalog-item-5" class="catalog-item " data='{"id":5,"title":"Item 5"}'>Item 5</li>
+            <li id="catalog-item-6" class="catalog-item " data='{"id":6,"title":"Item 6"}'>Item 6</li>
+            <li id="catalog-item-7" class="catalog-item " data='{"id":7,"title":"Item 7"}'>Item 7</li>
+            <li id="catalog-item-9" class="catalog-item " data='{"id":8,"title":"Item 8"}'>Item 8</li>
+            <li id="catalog-item-8" class="catalog-item " data='{"id":9,"title":"Item 9"}'>Item 9</li>
+            <li id="catalog-item-10" class="catalog-item " data='{"id":10,"title":"Item 10"}'>Item 10</li>
           </ul>
         </div>
       </div>
@@ -113,6 +114,7 @@
       </form>
     </div>
 
+    <script src="js/json2.js"></script>
     <script src="js/jquery-1.6.2.js"></script>
     <script src="js/jquery-ui-1.8.15.custom.min.js"></script>
     <script src="js/jquery.livequery-1.1.1.js"></script>
