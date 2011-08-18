@@ -1,0 +1,69 @@
+{
+  "title": "Menu 1",
+  "categories": [
+    {
+      "title": "Category 1",
+      "products": [
+        {
+          "id": 1,
+          "title": "Item 2",
+          "subproducts": [
+            {
+              "id": 1,
+              "title": "Modifier 1",
+              "type": "toggle",
+              "value": "on",
+              "rules": {
+                "required": false
+              },
+              "order": 0
+            },
+            {
+              "id": 3,
+              "title": "Modifier 3",
+              "type": "toggle",
+              "value": "on",
+              "rules": {
+                "required": false
+              },
+              "order": 1
+            }
+          ],
+          "subproduct_groups": {
+            "title": "Subproduct Group 1",
+            "description": "Description 1",
+            "type": "toggle",
+            "value": "off",
+            "subproducts": [
+              {
+                "id": 1,
+                "title": "Modifier 1",
+                "rules": {
+                  "required": false
+                },
+                "order": 0
+              },
+              {
+                "id": 3,
+                "title": "Modifier 3",
+                "value": "on",
+                "rules": {
+                  "required": false
+                },
+                "order": 1
+              }
+            ],
+            "rules": {
+              "required": true,
+              "min": 2,
+              "max": 5
+            },
+            "order": 0
+          },
+          "order": 0
+        }
+      ],
+      "order": 0
+    }
+  ]
+}
