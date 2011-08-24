@@ -271,7 +271,25 @@
       var new_structure = build_menu($('#menus .menu'));
 
       var json = JSON.stringify(new_structure);
-      console.log(json);
+      //console.log(json);
+	  
+      $.ajax({
+	    type: 'POST',
+		url: 'menu_designer/save',
+		data: 'structure='+json,
+		success: function(msg){
+		  if(msg[1].data == 1){
+		    alert('Menu saved successfully.');
+		  }
+		  else{
+		    alert(msg[1].data);
+		  }
+		},
+        error:function(xhr, status, error){
+          alert('There was an error while saving changes. Please try again.');
+		}		
+	  });	  
+	  
     });
   });
 })(jQuery);
