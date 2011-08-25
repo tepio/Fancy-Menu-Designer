@@ -4,8 +4,7 @@
  */
 
 (function($){
-  $(document).ready(function(){
-
+  $(document).ready(function(){	
     var structure = {};
     
     /** Item Catalog UI **/
@@ -271,8 +270,7 @@
       var new_structure = build_menu($('#menus .menu'));
 
       var json = JSON.stringify(new_structure);
-      //console.log(json);
-	  
+ 
       $.ajax({
 	    type: 'POST',
 		url: 'menu_designer/save',
@@ -291,5 +289,67 @@
 	  });	  
 	  
     });
+	
+	/**
+	 * Init
+	 */
+	var menu_init = function(json) {
+	  var struct = jQuery.parseJSON(json);
+	  $('.menu-title').text(struct.title);
+	  
+	  $.each(struct.categories, function(index, value) { 
+		
+		//Create category node
+        var category = $('.category.template').clone().wrapInner('<li class="category" />').children('li').eq(0);
+		var category_title = $(category).find('.category-title');
+        $(category_title).text(value.title);
+		
+		// Create products for the category
+		$.each(value.products, function(index, value) { 		
+          category.find('.products').find(".placeholder").remove();				  
+          var product = $('.product.template').clone().wrapInner('<li class="product" />').children('li').eq(0);
+		 
+		  
+          $(product).data('data', {id: value.id, title: value.title});
+          $(product).find('.product-title').text(value.title);
+        			
+		  category.find('.products').append(product);
+		  
+		  //Add subproducts
+		  $.each(value.subproducts, function(index, value) { 
+		    product.find(".placeholder").remove();
+			
+			var subproduct = $('.subproduct.template').clone().wrapInner('<li class="subproduct" />').children('li').eq(0);
+			
+			// Update product item
+			$(subproduct).data('data', {id: value.id, title: value.title});
+			$(subproduct).find('.subproduct-title').text(value.title);
+				  
+			product.find('.subproducts').append(subproduct);
+		  });
+		  
+		});
+		
+		//Append the category node with products and subproducts
+		$('.categories').append(category);
+	  });
+
+	  
+	}
+	
+    $.ajax({
+	  type: 'GET',
+	  url: 'menu_designer/get_menu',
+
+	  success: function(msg){
+	    if(msg[1].data){
+			menu_init(msg[1].data);
+		}
+	  },
+      error:function(xhr, status, error){
+        alert('There was an error while retrieving the menu. Please try again.');
+	  }		
+	});		
+	
   });
 })(jQuery);
