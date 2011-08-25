@@ -4,11 +4,7 @@
  */
 
 (function($){
-  $(document).ready(function(){
-
-    var init_json = '{"title":"Test menu","categories":[{"title":"Category 1","products":[{"id":18,"title":"Item Name #2","subproducts":[{"id":19,"title":"Item Name #3","type":"toggle","value":"on","rules":{"required":false},"order":0}],"subproduct_groups":[],"order":0},{"id":13,"title":"Item Name #5","subproducts":[{"id":13,"title":"Item Name #5","type":"toggle","value":"on","rules":{"required":false},"order":0},{"id":20,"title":"Item Name #6","type":"toggle","value":"on","rules":{"required":false},"order":1}],"subproduct_groups":[],"order":1}],"order":0},{"title":"Category 2","products":[{"id":17,"title":"Item Name #1","subproducts":[{"id":18,"title":"Item Name #2","type":"toggle","value":"on","rules":{"required":false},"order":0},{"id":19,"title":"Item Name #3","type":"toggle","value":"on","rules":{"required":false},"order":1}],"subproduct_groups":[],"order":0},{"id":18,"title":"Item Name #2","subproducts":[{"id":10,"title":"Item Name #4","type":"toggle","value":"on","rules":{"required":false},"order":0},{"id":13,"title":"Item Name #5","type":"toggle","value":"on","rules":{"required":false},"order":1}],"subproduct_groups":[],"order":1}],"order":1}]}';  
-  
-	
+  $(document).ready(function(){	
     var structure = {};
     
     /** Item Catalog UI **/
@@ -274,8 +270,7 @@
       var new_structure = build_menu($('#menus .menu'));
 
       var json = JSON.stringify(new_structure);
-      //console.log(json);
-	  
+ 
       $.ajax({
 	    type: 'POST',
 		url: 'menu_designer/save',
