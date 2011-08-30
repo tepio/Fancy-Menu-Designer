@@ -6,100 +6,98 @@
   </head>
   <body>
 
-    <div id="menus">
-      <div class="menu">
+    <div id="menu_wrapper" class="fancy-menu-designer">
+      <div class="menus">
+        <div class="menu">
+          <div class="grippy"></div>
+          <header class="clearfix">
+            <div class="menu-title" placeholder="Untitled Menu">Untitled Menu</div>
+            <div class="edit-title">edit</div>
+          </header>
+          <ul class="categories">
+            <li class="category-add_button"><strong>&plus;</strong> Add Category</li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Menu Template -->
+      <div class="menu template" style="display:none;">
         <div class="grippy"></div>
         <header class="clearfix">
-          <div class="menu-title" placeholder="Untitled Menu">Untitled Menu</div>
+          <div class="menu-title" placeholder="Untitled Menu"></div>
           <div class="edit-title">edit</div>
         </header>
         <ul class="categories">
           <li class="category-add_button"><strong>&plus;</strong> Add Category</li>
         </ul>
       </div>
-    </div>
-
-    <!-- Menu Template -->
-    <div class="menu template" style="display:none;">
-      <div class="grippy"></div>
-      <header class="clearfix">
-        <div class="menu-title" placeholder="Untitled Menu"></div>
-        <div class="edit-title">edit</div>
-      </header>
-      <ul class="categories">
-        <li class="category-add_button"><strong>&plus;</strong> Add Category</li>
-      </ul>
-    </div>
-
-    <!-- Category Template -->
-    <div class="category template" style="display:none;">
-      <div class="grippy"></div>
-      <header class="clearfix">
-        <div class="category-title" placeholder="Untitled Category"></div>
-        <div class="edit-title">edit</div>
-      </header>
-      <ul class="products">
-        <li />
-      </ul>
-    </div>
-
-    <!-- Product Template -->
-    <div class="product template" style="display:none;">
-      <div class="grippy"></div>
-      <header class="clearfix">
-        <div class="product-title" placeholder="Untitled Product"></div>
-        <div class="edit-title">edit</div>
-      </header>
-      <ul class="subproducts">
-        <li />
-      </ul>
-      <ul class="subproduct_groups">
-        <li />
-      </ul>
-    </div>
-
-    <!-- Subproduct Template -->
-    <div class="subproduct template" style="display: none;">
-      <div class="grippy"></div>
-      <header class="clearfix">
-        <div class="subproduct-title" placeholder="Untitled Subproduct"></div>
-        <div class="edit-title">edit</div>
-      </header>
-      <div class="subproduct-type"></div>
-    </div>
-
-    <!-- Subproduct Group Template -->
-    <div class="subproduct_group template" style="display: none">
-      <div class="grippy"></div>
-      <header class="clearfix">
-        <div class="subproduct_group-title" placeholder="Untitled Subproduct Group"></div>
-        <div class="edit-title">edit</div>
-      </header>
-      <div class="subproduct_group-type"></div>
-      <div class="subproduct_group-rules"></div>
-    </div>
-
-    <div id="right-bar">
-      <div id="trash">
-        <div id="trash-header">Trash</div>
-        <ul id="trash-list"></ul>
+  
+      <!-- Category Template -->
+      <div class="category template" style="display:none;">
+        <div class="grippy"></div>
+        <header class="clearfix">
+          <div class="category-title" placeholder="Untitled Category"></div>
+          <div class="edit-title">edit</div>
+        </header>
+        <ul class="products">
+          <li />
+        </ul>
       </div>
-      <div id="item-catalog">
-        <div>Items</div>
-        <div class="tinyscrollbar">
-          <ul>
-            <!-- Make sure to create a json object for the data attribute -->
-            <li id="catalog-item-1" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 1</li>
-            <li id="catalog-item-2" class="catalog-item " data='{"id":2,"title":"Item 2"}'>Item 2</li>
-            <li id="catalog-item-3" class="catalog-item " data='{"id":3,"title":"Item 3"}'>Item 3</li>
-            <li id="catalog-item-4" class="catalog-item " data='{"id":4,"title":"Item 4"}'>Item 4</li>
-            <li id="catalog-item-5" class="catalog-item " data='{"id":5,"title":"Item 5"}'>Item 5</li>
-            <li id="catalog-item-6" class="catalog-item " data='{"id":6,"title":"Item 6"}'>Item 6</li>
-            <li id="catalog-item-7" class="catalog-item " data='{"id":7,"title":"Item 7"}'>Item 7</li>
-            <li id="catalog-item-9" class="catalog-item " data='{"id":8,"title":"Item 8"}'>Item 8</li>
-            <li id="catalog-item-8" class="catalog-item " data='{"id":9,"title":"Item 9"}'>Item 9</li>
-            <li id="catalog-item-10" class="catalog-item " data='{"id":10,"title":"Item 10"}'>Item 10</li>
-          </ul>
+  
+      <!-- Product Template -->
+      <div class="product template" style="display:none;">
+        <div class="grippy"></div>
+        <header class="clearfix">
+          <div class="product-title" placeholder="Untitled Product"></div>
+          <div class="edit-title">edit</div>
+        </header>
+        <ul class="subproducts">
+          <li />
+        </ul>
+        <ul class="subproduct_groups">
+          <li />
+        </ul>
+      </div>
+  
+      <!-- Subproduct Template -->
+      <div class="subproduct template" style="display: none;">
+        <div class="grippy"></div>
+        <header class="clearfix">
+          <div class="subproduct-title" placeholder="Untitled Subproduct"></div>
+          <div class="edit-title">edit</div>
+        </header>
+        <div class="subproduct-type"></div>
+      </div>
+  
+      <!-- Subproduct Group Template -->
+      <div class="subproduct_group template" style="display: none">
+        <div class="grippy"></div>
+        <header class="clearfix">
+          <div class="subproduct_group-title" placeholder="Untitled Subproduct Group"></div>
+          <div class="edit-title">edit</div>
+        </header>
+        <div class="subproduct_group-type"></div>
+        <div class="subproduct_group-rules"></div>
+      </div>
+  
+      <div id="right-bar">
+        <div class="item-catalog">
+          <div>Items</div>
+          <div class="tinyscrollbar">
+            <ul>
+              <!-- Make sure to create a json object for the data attribute -->
+              <li id="catalog-item-1" class="catalog-item " data='{"id":1,"title":"Item 1"}'>Item 1</li>
+              <li id="catalog-item-2" class="catalog-item " data='{"id":2,"title":"Item 2"}'>Item 2</li>
+              <li id="catalog-item-3" class="catalog-item " data='{"id":3,"title":"Item 3"}'>Item 3</li>
+              <li id="catalog-item-4" class="catalog-item " data='{"id":4,"title":"Item 4"}'>Item 4</li>
+              <li id="catalog-item-5" class="catalog-item " data='{"id":5,"title":"Item 5"}'>Item 5</li>
+              <li id="catalog-item-6" class="catalog-item " data='{"id":6,"title":"Item 6"}'>Item 6</li>
+              <li id="catalog-item-7" class="catalog-item " data='{"id":7,"title":"Item 7"}'>Item 7</li>
+              <li id="catalog-item-9" class="catalog-item " data='{"id":8,"title":"Item 8"}'>Item 8</li>
+              <li id="catalog-item-8" class="catalog-item " data='{"id":9,"title":"Item 9"}'>Item 9</li>
+              <li id="catalog-item-10" class="catalog-item " data='{"id":10,"title":"Item 10"}'>Item 10</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -119,6 +117,7 @@
     <script src="js/jquery.livequery-1.1.1.js"></script>
     <script src="js/jquery.metadata.js"></script>
     <script src="js/jquery.tinyscrollbar.js"></script>
-    <script src="js/menu_designer.js"></script>
+    <script src="../jquery.fancy_menu_designer-0.5.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
