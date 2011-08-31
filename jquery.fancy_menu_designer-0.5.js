@@ -110,6 +110,7 @@
         /** Categories UI **/
         menu.selector.find('.categories').livequery(function(){
           $(this).sortable({
+            items: '.category',
             handle: '.grippy',
             helper: 'clone',
             placeholder: 'list-placeholder',
@@ -120,6 +121,7 @@
         /** Products UI **/
         menu.selector.find('.products').livequery(function(){ 
           $(this).sortable({
+            items: '.product',
             handle: '.grippy',
             connectWith: '.products',
             placeholder: 'list-placeholder',
@@ -144,6 +146,7 @@
         /** Subproduct UI **/
         menu.selector.find('.subproducts').livequery(function(){
           $(this).sortable({
+            items: '.subproduct',
             handle: '.grippy',
             connectWith: '.subproducts',
             placeholder: 'list-placeholder',
