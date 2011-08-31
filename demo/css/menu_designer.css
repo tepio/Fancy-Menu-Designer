@@ -21,42 +21,7 @@ html[xmlns] .clearfix {
 }
 
 
-/** Menu Designer **/
-.fancy-menu-designer .item-catalog ul {
-  height: 100px;
-}
-.fancy-menu-designer .item-catalog ul li {
-  width: 170px;
-}
-/* Tiny Scrollbar */
-.fancy-menu-designer .item-catalog .tinyscrollbar { width: 200px;}
-.fancy-menu-designer .item-catalog .tinyscrollbar .viewport { height: 200px; overflow: hidden; position: relative; }
-.fancy-menu-designer .item-catalog .tinyscrollbar .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
-.fancy-menu-designer .item-catalog .tinyscrollbar .scrollbar{
-  position: relative;
-  float: right;
-  width: 8px;
-}
-.fancy-menu-designer .item-catalog .tinyscrollbar .track {
-  position: relative;
-  height: 100%;
-  width: inherit;
-  background: #D2D2D2;
-  border-radius: 15px;
-}
-.fancy-menu-designer item-catalog .tinyscrollbar .thumb {
-  position: absolute;
-  top: 0;
-  left: 0px;
-  width: inherit;
-  height: 20px;
-  cursor: pointer;
-  overflow: hidden;
-  background: #7F7F7F;
-  border-radius: inherit; 
-}
-.fancy-menu-designer .item-catalog .tinyscrollbar .disable { display: none; }
-
+/**************************************************************** Menu **/
 .fancy-menu-designer .grippy {
   position: absolute;
   top: 0;
@@ -66,9 +31,36 @@ html[xmlns] .clearfix {
   background: #B2B2B5;
   cursor: move;
 }
+.fancy-menu-designer .delete {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding:1px 3px;
+  background: #6C6C6C;
+  border-radius: 5px;
+  color: #efefef;
+  font-family: sans-serif;
+  font-size: 10px;
+  cursor: pointer;
+}
+.fancy-menu-designer .options {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 45px;
+  padding:1px 3px;
+  background: #6C6C6C;
+  border-radius: 5px;
+  color: #efefef;
+  font-family: sans-serif;
+  font-size: 10px;
+  cursor: pointer;
+}
 
 .fancy-menu-designer .menus {
   position: relative;
+  float: left;
 }
 
 .fancy-menu-designer .menus .menu-title, .fancy-menu-designer .menus .category-title, .fancy-menu-designer .menus .product-title,
@@ -98,6 +90,28 @@ html[xmlns] .clearfix {
   list-style: none;
   margin: 5px !important;
   padding: 5px !important;
+}
+.fancy-menu-designer .categories .list-placeholder {
+  height: 25px;
+  margin: 5px;
+  padding: 10px;
+  background: #EBEBEB;
+  border: 2px dashed #C5C5C5;
+  font-size: 16px;
+  line-height: 22px;
+}
+.fancy-menu-designer .category {
+  position: relative;
+  margin: 5px;
+  padding: 5px 5px 5px 10px;
+  background: #E2E2E2;
+}
+.fancy-menu-designer .category-title {
+  font-size: 24px;
+  cursor: pointer;
+}
+.fancy-menu-designer .category-title input.title-change {
+  font-size: inherit;
 }
 .fancy-menu-designer .category-add_button {
   padding: 10px;
@@ -129,28 +143,6 @@ html[xmlns] .clearfix {
 .fancy-menu-designer .category-add_button:hover strong {
   background: #387CC8; 
 }
-.fancy-menu-designer .categories .list-placeholder {
-  height: 25px;
-  margin: 5px;
-  padding: 10px;
-  background: #EBEBEB;
-  border: 2px dashed #C5C5C5;
-  font-size: 16px;
-  line-height: 22px;
-}
-.fancy-menu-designer .category {
-  position: relative;
-  margin: 5px;
-  padding: 5px 5px 5px 10px;
-  background: #E2E2E2;
-}
-.fancy-menu-designer .category-title {
-  font-size: 24px;
-  cursor: pointer;
-}
-.fancy-menu-designer .category-title input.title-change {
-  font-size: inherit;
-}
 .fancy-menu-designer .products, .fancy-menu-designer .subproducts, .fancy-menu-designer .subproduct_groups {
   position: relative;
   min-width: inherit;
@@ -161,8 +153,9 @@ html[xmlns] .clearfix {
   background: #E4E8EC;
   list-style-type: none;
 }
-.fancy-menu-designer .products .list-placeholder, .fancy-menu-designer .subproducts .list-placeholder, .fancy-menu-designer .subproduct_groups .list-placeholder,
-.fancy-menu-designer .products.ui-state-default, .fancy-menu-designer .subproducts.ui-state-default, .fancy-menu-designer .subproduct_groups.ui-state-defualt {
+.fancy-menu-designer .products .list-placeholder, .fancy-menu-designer .subproducts .list-placeholder,
+.fancy-menu-designer .subproduct_groups .list-placeholder, .fancy-menu-designer .products.ui-state-default,
+.fancy-menu-designer .subproducts.ui-state-default, .fancy-menu-designer .subproduct_groups.ui-state-default {
   border: 2px dashed #C5C5C5;
   border-radius: 0;
   color: #C5C5C5;
@@ -189,6 +182,34 @@ html[xmlns] .clearfix {
 .fancy-menu-designer .product-title .title-change {
   font-size: inherit;
 }
+
+.fancy-menu-designer .categories {
+  list-style: none;
+  margin: 5px !important;
+  padding: 5px !important;
+}
+.fancy-menu-designer .categories .list-placeholder {
+  height: 25px;
+  margin: 5px;
+  padding: 10px;
+  background: #EBEBEB;
+  border: 2px dashed #C5C5C5;
+  font-size: 16px;
+  line-height: 22px;
+}
+.fancy-menu-designer .subproduct_group {
+  position: relative;
+  margin: 5px;
+  padding: 5px 5px 5px 10px;
+  background: #E2E2E2;
+}
+.fancy-menu-designer .subproduct_group-title {
+  font-size: 24px;
+  cursor: pointer;
+}
+.fancy-menu-designer .subproduct_group-title input.title-change {
+  font-size: inherit;
+}
 .fancy-menu-designer .subproduct-title {
   font-size: 16px;
 }
@@ -201,8 +222,20 @@ html[xmlns] .clearfix {
 .fancy-menu-designer .subproduct_group-title .title-change {
   font-size: inherit;
 }
-
-.fancy-menu-designer .menu > header > div, .fancy-menu-designer .category > header > div, .fancy-menu-designer .product > header > div, .fancy-menu-designer .subproduct > header > div, .fancy-menu-designer .subproduct_group > header > div {
+.fancy-menu-designer .subproduct_group-rules {
+  display: none;
+}
+.fancy-menu-designer .subproduct_group-rules .rule {
+  float: left;
+}
+.fancy-menu-designer .menu > header, .fancy-menu-designer .category > header,
+.fancy-menu-designer .product > header, .fancy-menu-designer .subproduct > header,
+.fancy-menu-designer .subproduct_group > header {
+  width: 100%;
+}
+.fancy-menu-designer .menu > header > div, .fancy-menu-designer .category > header > div,
+.fancy-menu-designer .product > header > div, .fancy-menu-designer .subproduct > header > div,
+.fancy-menu-designer .subproduct_group > header > div {
   float: left;
 }
 .fancy-menu-designer .edit-title {
@@ -220,9 +253,54 @@ html[xmlns] .clearfix {
 .fancy-menu-designer .ui-state-highlight {
   background: rgb(239, 239, 200);
 }
+/**************************************************************** Right Bar **/
+.fancy-menu-designer .right-bar {
+  float: left;
+}
+.fancy-menu-designer .right-bar > div{
+  float: left;
+  width: 200px;
+  margin: 0 10px;
+  padding: 10px;
+  background: #eaeaea;
+}
+.fancy-menu-designer .right-bar > div ul{
+  list-style: none;
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+.fancy-menu-designer .right-bar > div ul li {
+  
+}
+.fancy-menu-designer .right-bar > div ul li:first-child {
+  margin-top: 0;
+}
+.fancy-menu-designer .right-bar > div ul li {
+  list-style: none;
+  padding: 5px;
+  margin: 5px;
+  background: #fefefe;
+  cursor: move;
+}
+/**************************************************************** SubProduct Groups **/
+.fancy-menu-designer div.subproduct_group-catalog {
+  width: auto;
+}
+.fancy-menu-designer .subproduct_group-catalog ul {}
+.fancy-menu-designer .subproduct_group-catalog .caption {
+  font-size: 10px;
+}
+/**************************************************************** Item Catalog **/
+/* Tiny Scrollbar */
+.fancy-menu-designer .item-catalog .tinyscrollbar{width:200px;}
+.fancy-menu-designer .item-catalog .tinyscrollbar .viewport{height:200px;overflow:hidden;position:relative;}
+.fancy-menu-designer .item-catalog .tinyscrollbar .overview{list-style:none;position:absolute;left:0;top:0;padding:0;margin:0;}
+.fancy-menu-designer .item-catalog .tinyscrollbar .scrollbar{position:relative;float:right;width:8px;}
+.fancy-menu-designer .item-catalog .tinyscrollbar .track{position:relative;height:100%;width:inherit;background:#D2D2D2;border-radius:15px;}
+.fancy-menu-designer .item-catalog .tinyscrollbar .thumb{position:absolute;top:0;left:0px;width:inherit;height:20px;cursor:pointer;overflow:hidden;background:#7F7F7F;border-radius:inherit;}
+.fancy-menu-designer .item-catalog .tinyscrollbar .disable{display:none;}
 
 .fancy-menu-designer .item-catalog {
-  float: left;
   width: 200px;
   margin: 0 0 10px 10px;
   padding: 10px;
@@ -230,9 +308,7 @@ html[xmlns] .clearfix {
   overflow: hidden;
 }
 .fancy-menu-designer .item-catalog ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  height: 100px;
 }
 .fancy-menu-designer .item-catalog ul li:first-child {
   margin-top: 0;

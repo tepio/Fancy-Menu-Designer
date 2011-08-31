@@ -7,7 +7,7 @@
   <body>
 
     <div id="menu_wrapper" class="fancy-menu-designer">
-      <div class="menus">
+      <div class="menus clearfix">
         <div class="menu">
           <div class="grippy"></div>
           <header class="clearfix">
@@ -26,6 +26,7 @@
         <header class="clearfix">
           <div class="menu-title" placeholder="Untitled Menu"></div>
           <div class="edit-title">edit</div>
+          <div class="delete">delete</div>
         </header>
         <ul class="categories">
           <li class="category-add_button"><strong>&plus;</strong> Add Category</li>
@@ -38,6 +39,7 @@
         <header class="clearfix">
           <div class="category-title" placeholder="Untitled Category"></div>
           <div class="edit-title">edit</div>
+          <div class="delete">delete</div>
         </header>
         <ul class="products">
           <li />
@@ -50,6 +52,7 @@
         <header class="clearfix">
           <div class="product-title" placeholder="Untitled Product"></div>
           <div class="edit-title">edit</div>
+          <div class="delete">delete</div>
         </header>
         <ul class="subproducts">
           <li />
@@ -63,8 +66,12 @@
       <div class="subproduct template" style="display: none;">
         <div class="grippy"></div>
         <header class="clearfix">
+          <div class="default">
+            <input type="checkbox">
+          </div>
           <div class="subproduct-title" placeholder="Untitled Subproduct"></div>
           <div class="edit-title">edit</div>
+        <div class="delete">delete</div>
         </header>
         <div class="subproduct-type"></div>
       </div>
@@ -75,12 +82,36 @@
         <header class="clearfix">
           <div class="subproduct_group-title" placeholder="Untitled Subproduct Group"></div>
           <div class="edit-title">edit</div>
+          <div class="options">options</div>
+          <div class="delete">delete</div>
         </header>
+        <ul class="subproducts">
+          <li />
+        </ul>
         <div class="subproduct_group-type"></div>
-        <div class="subproduct_group-rules"></div>
+        <div class="subproduct_group-rules clearfix">
+          <div class="rule">
+            <label>Min:</label>
+            <input name="min" type="text" class="min" size="3" maxlength="3" value="0">
+          </div>
+          <div class="rule">
+            <label>Max*:</label>
+            <input name="max" type="text" class="max" size="3" maxlength="3" value="0">
+          </div>
+          <div style="clear: both; font-size: 10px; font-style: oblique;">*Zero represents infinite</div>
+        </div>
       </div>
   
-      <div id="right-bar">
+      <div class="right-bar clearfix">
+        <div class="subproduct_group-catalog">
+          <div>Subproduct Groups</div>
+          <ul>
+            <li class="catalog-subproduct_group">
+              <img src="images/grp1.png">
+              <div class="caption">Basic</div>
+            </li>
+          </ul>
+        </div>
         <div class="item-catalog">
           <div>Items</div>
           <div class="tinyscrollbar">
