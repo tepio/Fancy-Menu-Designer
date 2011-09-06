@@ -172,7 +172,6 @@
             connectWith: '.products',
             placeholder: 'list-placeholder',
             sort: function(event, ui){
-              console.log('K');
               $(this).removeClass("ui-state-default");
             }
           }).droppable({
@@ -183,7 +182,6 @@
             drop: function(event, ui){
               // Remove jQuery UI placeholder
               $(this).find(".placeholder").remove();
-              console.log('ok',ui.draggable.metadata({type:'attr',name:'data',single:'data'}));
               
               menu.buildNode('product', ui.draggable.metadata({type:'attr',name:'data',single:'data'}))
                 .hide().appendTo(this).slideDown();
@@ -299,7 +297,7 @@
             });
             
             // Subproducts
-            structure.categories[category_order - 1].products[product_order - 1].subproducts = menu.buildSubproducts($(this).find('.subproduct'));
+            structure.categories[category_order - 1].products[product_order - 1].subproducts = menu.buildSubproducts($(this).find('.subproduct:not(.subproduct_group .subproduct)'));
             
             // Subproduct Groups
             var subproduct_group_order = 0;
