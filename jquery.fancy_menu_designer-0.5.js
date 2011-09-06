@@ -54,6 +54,15 @@
                 // Append to subproduct_group
                 subproduct_group.find('.subproducts').append(subproduct);
               });
+
+              // Rules
+              if(typeof value.rules != 'undefined') {
+                if(typeof value.rules.min == 'undefined' || !value.rules.min) value.rules.min = 0;
+                if(typeof value.rules.max == 'undefined' || !value.rules.max) value.rules.max = 0;
+
+                subproduct_group.find('.rule .min').val(value.rules.min);
+                subproduct_group.find('.rule .max').val(value.rules.max);
+              }
               
               // Append to product
               product.find('.subproduct_groups').append(subproduct_group);
@@ -206,8 +215,6 @@
             greedy: true,
             tolerance: 'pointer',
             drop: function(event, ui) {
-
-              console.log('ok',ui.draggable.metadata({type:'attr',name:'data',single:'data'}));
               // Remove jQuery UI placeholder
               $(this).find(".placeholder").remove();
               
