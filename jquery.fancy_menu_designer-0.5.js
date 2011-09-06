@@ -172,6 +172,7 @@
             connectWith: '.products',
             placeholder: 'list-placeholder',
             sort: function(event, ui){
+              console.log('K');
               $(this).removeClass("ui-state-default");
             }
           }).droppable({
@@ -182,6 +183,7 @@
             drop: function(event, ui){
               // Remove jQuery UI placeholder
               $(this).find(".placeholder").remove();
+              console.log('ok',ui.draggable.metadata({type:'attr',name:'data',single:'data'}));
               
               menu.buildNode('product', ui.draggable.metadata({type:'attr',name:'data',single:'data'}))
                 .hide().appendTo(this).slideDown();
@@ -206,6 +208,8 @@
             greedy: true,
             tolerance: 'pointer',
             drop: function(event, ui) {
+
+              console.log('ok',ui.draggable.metadata({type:'attr',name:'data',single:'data'}));
               // Remove jQuery UI placeholder
               $(this).find(".placeholder").remove();
               
@@ -255,9 +259,11 @@
       */
       build_menu: function(){
         var menu = this;
+        var menu_container = menu.selector.find('.menu:not(.template)');
+
     
-        var meta = menu.selector.metadata();
-        var title = menu.selector.find('.menu-title').text();
+        var meta = menu_container.metadata();
+        var title = menu_container.find('.menu-title').text();
         
         var structure = {
           id: typeof meta.id == undefined ? null : meta.id,
@@ -267,7 +273,6 @@
         
         // Categories
         var category_order = 0;
-        menu_container = menu.selector.find('.menu:not(.template)');
         menu_container.find('.category').each(function(){
           var meta = $(this).metadata();
           var title = $(this).find('.category-title').text();
@@ -341,10 +346,9 @@
         if(typeof template[type] != 'undefined' && typeof template[type] != 'null') {
           if(typeof template[type] != 'object') throw "Template for "+type+" doesn't exist";
           var node = template[type].clone().wrapInner('<li class="'+type+'" />').children('li').eq(0);
-          var data = {
-            id: 0,
-            title: node.find('.'+type+'-title').attr('placeholder')
-          };
+          var data = value;
+          if(typeof data.id == 'undefined' || !data.id) data.id = 0;
+          if(typeof data.title == 'undefined') data.title =  node.find('.'+type+'-title').attr('placeholder');
           
           if(typeof value == 'object') {
             data = {
@@ -354,6 +358,7 @@
           }
           
           node.find('.'+type+'-title').text(data.title);
+          node.data('data', data);
           return node;
         }
         
